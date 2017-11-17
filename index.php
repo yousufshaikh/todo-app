@@ -7,7 +7,6 @@
         header('Location: index.php');
         exit;
     }?>
-
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -17,9 +16,6 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/custom.css">
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="jquery.js"></script>
-
         <title>TODO APP</title>
     </head>
     <body>
@@ -37,7 +33,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <!-- <li><a href="index.php">Todo</a></li> -->
-            <li class=""><a href="todolist.php">Todo List</a></li>
+            <!-- <li class=""><a href="todolist.php">Todo List</a></li> -->
             <!-- <li class=""><a href="todolist.php">Completed Task</a></li> -->
 
             <!-- <li><a href="contact">Contact</a></li> -->
@@ -80,6 +76,7 @@
         echo       '<tr>';
         echo         '<th>#</th>';
         echo         '<th>Todo Item</th>';
+        echo         '<th>ID</th>';
         // echo         '<th>Complete</th>';
         echo        '<th>Edit</th>';
         echo         '<th>Delete</th>';
@@ -92,7 +89,8 @@
             echo  '<tr>';
             echo   '<td>'. ++$counter .'</td>';
             echo   '<td>'. $row['todowork'] .'</td>';
-            // echo   '<td><a href="" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a></td>';
+            echo '<td>'. $row['id'] .'</td>';
+            // echo   '<td><a href="" class="btn btn-success" onclick="colorChange()"><i class="fa fa-check" aria-hidden="true" ></i></a></td>';
             echo    '<td><a href="todolist-update.php?item_id='. $row['id'] .'" class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>';
             echo    '<td><a href="delete_list.php?item_id='. $row['id'] .'" class="btn btn-danger" onclick=\'return confirm("You want to delete, Are you sure?")\'><i class="fa fa-times" aria-hidden="true"></i></a></td>';
             echo   '</tr>';
@@ -109,7 +107,12 @@
     </div>
     </div>
     </div>
-    <!-- <script src="js/bootstrap.mim.js"></script>
-    <script src="js/jquery.js"></script> -->
+
+    <!-- <script type="text/javascript">
+        function colorChange() {
+            document.getElementById($row['id']).className = "label-success";
+        }
+    </script> -->
+
     </body>
     </html>
